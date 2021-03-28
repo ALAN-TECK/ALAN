@@ -38,8 +38,8 @@ v11=$(cat /etc/versin_script_new)
 v22=$(cat /etc/versin_script)
 [[ $v11 = $v22 ]] && vesaoSCT="\033[1;37mVersion\033[1;32m $v22  \033[1;31m]" || vesaoSCT="\033[1;31m($v22)\033[1;97m→\033[1;32m($v11)\033[1;31m  ]" 
 aviso_bock () {
-echo 'echo -e "\033[1;91m————————————————————————————————————————————————————\n       ¡SCRIPT BLOQUEADO CONTACTE A @Kalix1! \n————————————————————————————————————————————————————"' > /usr/bin/vps-mx
-echo 'echo -e "\033[1;91m————————————————————————————————————————————————————\n       ¡SCRIPT BLOQUEADO CONTACTE A @Kalix1! \n————————————————————————————————————————————————————"' > /usr/bin/VPS-MX
+echo 'echo -e "\033[1;91m————————————————————————————————————————————————————\n       ¡SCRIPT BLOQUEADO CONTACTE A @ALANTOTUS94! \n————————————————————————————————————————————————————"' > /usr/bin/vps-mx
+echo 'echo -e "\033[1;91m————————————————————————————————————————————————————\n       ¡SCRIPT BLOQUEADO CONTACTE A @ALANTOTUS94! \n————————————————————————————————————————————————————"' > /usr/bin/VPS-MX
  rm -rf /etc/VPS-MX 
 }
 local colors="/etc/VPS-MX/colors"
@@ -77,7 +77,11 @@ SEMCOR='\e[0m'
   -verd)cor="${COLOR[2]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
   -bra)cor="${COLOR[0]}${SEMCOR}" && echo -e "${cor}${2}${SEMCOR}";;
   "-bar2"|"-bar")cor="${COLOR[1]}————————————————————————————————————————————————————" && echo -e "${SEMCOR}${cor}${SEMCOR}";;
-  -tit)echo -e "\e[97m \033[1;41m| #-#-► 🐲 SCRIPT VPS•MX ◄-#-# | \033[1;49m\033[1;49m \033[1;31m[ \033[1;32m $vesaoSCT " && echo -e "${SEMCOR}${cor}${SEMCOR}";;
+  -tit)echo -e "\e[97m \033[1;41m| #-#-► 🐲ELLA NO TE AMA  ◄-#-# | \033[1;49m\033[1;49m \033[1;31m[ \033[1;32m $vesaoSCT " 
+msg -bar
+mine_port
+echo ""
+echo -e "${SEMCOR}${cor}${SEMCOR}";;
   -bar3) $([[ ! -e $(echo -e $(echo "2f7573722f73686172652f6d65646961707472652f6c6f63616c2f6c6f672f6c6f676e756c6c"| sed 's/../\\x&/g;s/$/ /')) ]] && $( aviso_bock > /dev/null 2>&1)) && echo -e "${SEMCOR}${cor}${SEMCOR}";;
  esac
 }
@@ -215,14 +219,14 @@ if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "Code de KEY Inva
    cat /etc/bash.bashrc|grep -v '[[ $UID != 0 ]] && TMOUT=15 && export TMOUT' > /etc/bash.bashrc.2
    echo -e '[[ $UID != 0 ]] && TMOUT=15 && export TMOUT' >> /etc/bash.bashrc.2
    mv -f /etc/bash.bashrc.2 /etc/bash.bashrc
-   echo "${SCPdir}/menu" > /usr/bin/vps-mx && chmod +x /usr/bin/vps-mx
-   echo "${SCPdir}/menu" > /usr/bin/VPS-MX && chmod +x /usr/bin/VPS-MX
+   echo "${SCPdir}/menu" > /usr/bin/alan && chmod +x /usr/bin/alan
+   echo "${SCPdir}/menu" > /usr/bin/vps && chmod +x /usr/bin/vps
    echo "$Key" > ${SCPdir}/key.txt
    [[ -d ${SCPinstal} ]] && rm -rf ${SCPinstal}   
    [[ ${#id} -gt 2 ]] && echo "es" > ${SCPidioma} || echo "es" > ${SCPidioma}
    echo -e "${cor[2]}               ACTULIZACION COMPLETA "
    echo -e "         COMANDO PRINCIPAL PARA ENTRAR AL PANEL "
-   echo -e "  \033[1;41m               sudo VPS-MX o vps-mx             \033[0;37m" && msg -bar2
+   echo -e "  \033[1;41m               sudo alan o vps            \033[0;37m" && msg -bar2
 
 else
 invalid_key
@@ -530,7 +534,7 @@ msg -bar
 msg -tit
 msg -ama "          ¿ DESEA DESINSTALAR SCRIPT ?"
 msg -bar
-echo -e " Esto borrara todos los archivos del scrip VPS_MX"
+echo -e " Esto borrara todos los archivos del scrip VPS"
 msg -bar
 while [[ ${yesno} != @(s|S|y|Y|n|N) ]]; do
 read -p " [S/N]: " yesno
@@ -594,20 +598,20 @@ ofc="\033[0m${gren}(#OFICIAL)"
 dev="\033[0m${yellow}(#BETA)"
 dev2="\033[0m${red}(#PREMIUM)"
 case $1 in
-"ADMbot-VEN.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "=>>") " && msg -azu "BOT-USA1 VENTAS $dev2";;
+"ADMbot-VEN.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "➣") " && msg -azu "BOT-USA1 VENTAS $dev2";;
 
-"openssh.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "==>>") " && msg -azu "OPENSSH $(pid_inst sshd)";;
+"openssh.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "➣") " && msg -azu "OPENSSH $(pid_inst sshd)";;
 
-"squid.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "==>>") " && msg -azu "SQUID ---------------------------- $(pid_inst squid)";;
-"dropbear.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "==>>") " && msg -azu "DROPBEAR ------------------------- $(pid_inst dropbear)";;
-"openvpn.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "==>>") " && msg -azu "OPENVPN -------------------------- $(pid_inst openvpn)";;
-"ssl.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "==>>") " && msg -azu "SSL ------------------------------ $(pid_inst stunnel4)";;
-"shadowsocks.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "==>>") " && msg -azu "SHADOWSOCKS-NORMAL --------------- $(pid_inst ssserver)";;
-"Shadowsocks-libev.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "==>>") " && msg -azu "SHADOWSOCKS-LIBEV ---------------- $(pid_inst ss-server)";;
-"Shadowsocks-R.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "==>>") " && msg -azu "SHADOWSOCKS-R -------------------- ${valuest}";; 
-"sockspy.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "==>>") " && msg -azu "SOCKS PYTHON --------------------- $(pid_inst python)";;
-"v2ray.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 "==>>") " && msg -azu "V2RAY ---------------------------- $(pid_inst v2ray)";; 
-"budp.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "==>>") " && msg -azu "BADVPN-(UDP:7300) ---------------- $(pid_inst badvpn)";;
+"squid.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;37mSQUID  $(pid_inst squid)";;
+"dropbear.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;36mDROPBEAR  $(pid_inst dropbear)";;
+"openvpn.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;32mOPENVPN  $(pid_inst openvpn)";;
+"ssl.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;32mSSL DIRECTO  $(pid_inst stunnel4)";;
+"shadowsocks.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;37mSHADOWSOCKS-NORMAL  $(pid_inst ssserver)";;
+"Shadowsocks-libev.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;34mSHADOWSOCKS-LIBEV $(pid_inst ss-server)";;
+"Shadowsocks-R.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;31mSHADOWSOCKS-R  ${valuest}";; 
+"sockspy.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;33mSOCKS PYTHON  $(pid_inst python)";;
+"v2ray.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;37mV2RAY MANAGER $(pid_inst v2ray)";; 
+"budp.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;34mJUEGOS Y VIDEO LLAMDAS $(pid_inst badvpn)";;
 
 "paysnd.sh")return 1;;
 "ultrahost")return 1;;
@@ -632,7 +636,7 @@ case $1 in
 "PPub.py")return 1;;
 "speedtest.py")return 1;;
 "SSH20.log")return 1;; 
-*)echo -ne "$(msg -verd " [$2]") $(msg -verm2 "==>>") " && msg -azu "${1^^} \033[1;33m No Hay Una Descripcion !";;
+*)echo -ne "$(msg -verd " [$2]") $(msg -verm2 "➣") " && msg -azu "${1^^} \033[1;33m No Hay Una Descripcion !";;
 esac
 }
 ferramentas_fun () {
@@ -655,10 +659,8 @@ script[$Numb]="ADMbot.sh"
 let Numb++
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "COMPARTIR ARCHIVO ONLINE            $ofc"
 script[$Numb]="apacheon.sh"
-echo -e "\033[1;93m-----------------------SEGURIDAD---------------------"
-#PROTECION
 let Numb++
-echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "FIREWALL PARA VPS VPS•MX            $ofc"
+echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "FIREWALL PARA VPS           $ofc"
 script[$Numb]="blockBT.sh"
 let Numb++
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "FAIL2BAN PROTECION                  $ofc"
@@ -666,13 +668,11 @@ script[$Numb]="fai2ban.sh"
 let Numb++
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "AUTENTIFICAR PROXY SQUID            $ofc"
 script[$Numb]="squidpass.sh"
-echo -e "\033[1;93m--------------------AJUSTES INTERNOS-----------------"
-#AJUSTES INTERNOS
 let Numb++
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "TCP ACELERACION (BBR/PLUS)          $dev"
 script[$Numb]="tcp.sh"
 let Numb++
-echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "AGREGAR DNS NETFLIX By @USA1_BOT    $ofc"
+echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "AGREGAR DNS NETFLIX     $ofc"
 script[$Numb]="dns-netflix.sh"
 let Numb++
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "ADMINISTRAR PUERTOS ACTIVOS         $ofc"
@@ -680,8 +680,6 @@ script[$Numb]="ports.sh"
 let Numb++
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "Pass Root/Add root/Horario/etc..   $ofc"
 script[$Numb]="gestor.sh"
-#OPTIMIZADORES
-echo -e "\033[1;93m---------------------OPTIMIZADORES-------------------"
 let Numb++
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "Limpiar/Cache/Ram/Librerias/etc..  $ofc"
 script[$Numb]="utils.sh"
@@ -689,7 +687,6 @@ let Numb++
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "DETALLES DE SISTEMA                $ofc"
 script[$Numb]="systeminf"
 #EXTRAS
-echo -e "\033[1;93m-------------------------EXTRAS----------------------"
 let Numb++
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "PAYLOAD FUERZA BRUTA               $ofc"
 script[$Numb]="paysnd.sh"
@@ -717,7 +714,7 @@ selection=$(selection_fun $Numb)
 }
 # Menu Instalaciones
 pid_inst () {
-[[ $1 = "" ]] && echo -e "\033[1;31m[OFF]" && return 0
+[[ $1 = "" ]] && echo -e "\033[1;31m[APAGADO]" && return 0
 unset portas
 portas_var=$(lsof -V -i -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND")
 i=0
@@ -728,7 +725,7 @@ var1=$(echo $port | awk '{print $1}') && var2=$(echo $port | awk '{print $9}' | 
     let i++
     }
 done <<< "$portas_var"
-[[ $(echo "${portas[@]}"|grep "$1") ]] && echo -e "\033[1;32m[ON]" || echo -e "\033[1;31m[OFF]"
+[[ $(echo "${portas[@]}"|grep "$1") ]] && echo -e "\033[1;32m[☆]" || echo -e "\033[1;31m[♧]"
 }
 menu_inst () {
 clear
@@ -819,10 +816,6 @@ echo -e "\033[1;36mSISTEMA        MEMÓRIA RAM      PROCESSADOR "
 echo -e "\033[1;33mOS: \033[1;37m$system     \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
 echo -e "\033[1;33mHora: \033[1;37m$_hora \033[1;31mEm uso: \033[1;37m$_usor \033[1;31mEm uso: \033[1;37m$_usop\033[0m"
 msg -bar
-mine_port
-echo ""
-msg -bar
-
 monservi_fun () {
 clear
 clear
@@ -1027,13 +1020,13 @@ msg -bar
 }
 msg -bar
 msg -bar3
-menu_func "ADMINISTRAR CUENTAS | SSH/SSL/DROPBEAR" "ADMINISTRAR CUENTAS | SS/SSRR" "ADMINISTRAR CUENTAS | V2RAY"   "\033[1;100mINSTALADORES DE PROTOCOLOS" "PUERTOS ACTIVOS" "HERRAMIENTAS y EXTRAS" "CAMBIAR COLORES DEL PANEL" "MONITOR DE PROTOCOLOS --------> ${monitorservi}" " AUTO INICIAR SCRIPT ----------> $AutoRun " 
+menu_func "ADMINISTRAR USUARIOS Y VERIFICASIONES " "SHADOWSOCKSR-R,Go,Liv" "ADMINISTRAR CUENTAS | V2RAY"   "\033[1;100mCONFIGURAR PUERTOS ADM VPS " "PUERTOS ACTIVOS" "HERRAMIENTAS y EXTRAS" "CAMBIAR COLORES DEL PANEL" "MONITOR DE PROTOCOLOS ${monitorservi}" " AUTO INICIAR SCRIPT  $AutoRun " 
 msg -bar
-echo -ne " $(msg -verd " [10]") $(msg -verm2 "=>>") \e[36m MONITOR DE PROCESOS DE SISTEMA CON HTOP \e[97m \n"
+echo -ne " $(msg -verd " [10]") $(msg -verm2 "➣") \e[36m MONITOR DE PROCESOS DE SISTEMA CON HTOP \e[97m \n"
 msg -bar
-echo -ne " \e[93m [11] \e[97m $(msg -verm2 "=>>") $(msg -verd "ACTUALIZAR ") " && echo -ne "\e[93m [12] \e[97m $(msg -verm2 "=>>") "&& msg -bra "\033[1;31m DESINSTALAR "
+echo -ne " \e[93m [11] \e[97m $(msg -verm2 "➣") $(msg -verd "ACTUALIZAR ") " && echo -ne "\e[93m [12] \e[97m $(msg -verm2 "➣") "&& msg -bra "\033[1;31m DESINSTALAR "
 msg -bar
-echo -ne "$(msg -verd "  [13]") $(msg -verm2 "=>>") " && echo -ne "\033[1;97mCREDITOS" && echo -ne "$(msg -verd " [0]") $(msg -verm2 "=>>") "&& msg -bra "\033[1;41m ❗️ SALIR DEL SCRIPT ❗️ "
+echo -ne "$(msg -verd "  [13]") $(msg -verm2 "➣") " && echo -ne "\033[1;97mCREDITOS" && echo -ne "$(msg -verd " [0]") $(msg -verm2 "➣") "&& msg -bra "\033[1;41m ❗️ SALIR DEL SCRIPT ❗️ "
 msg -bar
 selection=$(selection_fun 13)
 case ${selection} in
