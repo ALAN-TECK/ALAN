@@ -9,9 +9,7 @@ SCPidioma="${SCPdir}/idioma"
 SCPusr="${SCPdir}/controlador"
 SCPfrm="${SCPdir}/herramientas"
 SCPinst="${SCPdir}/protocolos"
-kalix1="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FMQU4tVEVDSy9BTEFOL21haW4vREFO
-WQ==
-"
+kalix1="aHR0cHM6Ly9naXRodWIuY29tL0FMQU4tVEVDSy9BTEFOL2Jsb2IvbWFpbi9EQU5Z"
 PUTO='base64 -d'
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 echo "nameserver 8.8.4.4" >> /etc/resolv.conf
