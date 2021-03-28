@@ -1102,7 +1102,7 @@ local="/etc/VPS-MX/bannerssh"
 fi
 msg -bar
 msg -tit
-msg -ama "         AGREGAR BANNER SSH/SSL/DROPBEAR"
+msg -ama "         AGREGAR BANNER "
 msg -bar
 msg -ne "$(fun_trans  "Inserte el BANNER de preferencia en HTML sin saltos"): \n\n" && read ban_ner
 echo ""
@@ -1125,7 +1125,7 @@ clear
 clear
 msg -bar
 msg -tit
-msg -ama "         ELIMINANDO  BANNER SSH/SSL/DROPBEAR"
+msg -ama "         ELIMINANDO  BANNER SSH"
 msg -bar
 sed -i '/'Banner'/d' /etc/ssh/sshd_config
 sed -i -e 's/^[ \t]*//; s/[ \t]*$//; /^$/d' /etc/ssh/sshd_config
@@ -1142,11 +1142,11 @@ clear
 clear
 msg -bar
 msg -tit
-msg -ama "         AGREGAR BANNER SSH/SSL/DROPBEAR"
+msg -ama "         AGREGAR BANNER "
 msg -bar
 echo -e "${cor[1]}            Escoja la opcion deseada."
 msg -bar
-echo -e "\033[1;92m 1).- \033[1;37m AGREGAR BANNER SSH/SSL/DROPBEAR "
+echo -e "\033[1;92m 1).- \033[1;37m AGREGAR BANNER  "
 echo -e "\033[1;92m 2).- \033[1;37m ELIMINAR Y DESACTIVAR BANNER   "
 msg -bar
 echo -ne "\033[1;37mDigite solo el numero segun su respuesta: \033[1;32m"
@@ -1199,7 +1199,7 @@ exit
 fi
 [[ -z ${VERY2} ]] && desbloqueo="\033[1;31m[DESACTIVADO]" || desbloqueo="\033[1;32m[ACTIVO]"
 msg -tit
-msg -ama "  MENU ADMINISTRACION DE USUARIOS SSL/SSH/DROPBEAR"
+msg -ama "  MENU ADMINISTRACION DE USUARIOS ELLA NO TE AMA"
 msg -bar
 msg -bar3
 menu_func "CREAR NUEVO USUARIO" "CREAR USUARIO TEMPORAL" "REMOVER USUARIO" "BLOQUEAR O DESBLOQUEAR USUARIO" "REINICIAR CONTADOR DE BLOQUEADOS y EXPIRADOS" "EDITAR USUARIO" "RENOVAR USUARIO" "DETALLES DE TODOS USUARIOS" "MONITOR DE USUARIOS CONECTADOS" "ELIMINAR USUARIOS VENCIDOS" "BACKUP USUARIOS" "AGREGAR/ELIMINAR BANNER " "\033[1;31m⚠️ELIMINAR TODOS LOS USUARIOS⚠️ \n" " -fi ${verificar} \033[1;97m🔒 LIMITADOR-DE-CUENTAS 🔒 -" " -fi ${desbloqueo} \033[1;97m🔓 DESBLOQUEO-AUTOMATICO 🔓 -" "\033[1;92mLOG DE CUENTAS REGISTRADAS" "LIMPIAR LOG DE LIMITADOR"
