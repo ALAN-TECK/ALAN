@@ -342,7 +342,6 @@ case ${reQ} in
 openvpn)
 [[ -z $OVPN ]] && local OVPN="\033[0;36m OPENVPN-UDP: \033[1;32m"
 OVPN+="$Port ";;
-esac
 mine_port () {
 unset portas
 portas_var=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
@@ -390,6 +389,7 @@ echo -e "${texto}"
 done
 }
 mine_port
+esac
 done <<< "${portasVAR}"
 [[ ! -z $SSH ]] && echo -e $SSH
 [[ ! -z $SSL ]] && echo -e $SSL
