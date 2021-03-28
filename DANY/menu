@@ -273,18 +273,6 @@ done
 [[ -e /etc/VPS-MX/texto-mx ]] && rm /etc/VPS-MX/texto-mx
 echo "$(echo ${idioma[$selection]}|cut -d' ' -f1)" > ${SCPidioma}
 }
-mine_port () {
-clear
-clear
-msg -bar
-msg -tit
-echo -e "\033[1;93m      INFORMACION DEL SISTEMA Y PUERTOS ACTIVOS"
-msg -bar2
-echo -e "\033[1;31m PROCESADOR: \033[1;37mNUCLEOS: \033[1;32m$_core         \033[1;37mUSO DE CPU: \033[1;32m$_usop"
-echo -e "\033[1;31m LA MEMORIA RAM SE ENCUENTRA AL: \033[1;32m$_usor"
-echo -e "\033[1;31m DETALLE RAM: \033[1;37mTOTAL: \033[1;32m$ram1  \033[1;37mUSADO: \033[1;32m$ram3  \033[1;37mLIBRE: \033[1;32m$ram2"
-msg -ne " SO: " && echo -ne "\033[1;37m$(os_system)  "
-msg -ne " IP: " && echo -e "\033[1;37m$(meu_ip)"
 msg -bar2
 local portasVAR=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
 local NOREPEAT
