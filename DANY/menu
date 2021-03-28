@@ -286,6 +286,8 @@ echo -e "\033[1;31m DETALLE RAM: \033[1;37mTOTAL: \033[1;32m$ram1  \033[1;37mUSA
 msg -ne " SO: " && echo -ne "\033[1;37m$(os_system)  "
 msg -ne " IP: " && echo -e "\033[1;37m$(meu_ip)"
 msg -bar2
+mine_port
+msg -bar
 local portasVAR=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
 local NOREPEAT
 local reQ
@@ -389,6 +391,7 @@ texto="\033[1;31m${servico}: \033[1;32m${porta}"
 echo -e "${texto}"
 done
 }
+mine_port
 done <<< "${portasVAR}"
 [[ ! -z $SSH ]] && echo -e $SSH
 [[ ! -z $SSL ]] && echo -e $SSL
@@ -826,7 +829,6 @@ echo -e "\033[1;36mSISTEMA        MEMÓRIA RAM      PROCESSADOR "
 echo -e "\033[1;33mOS: \033[1;37m$system     \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
 echo -e "\033[1;33mHora: \033[1;37m$_hora \033[1;31mEm uso: \033[1;37m$_usor \033[1;31mEm uso: \033[1;37m$_usop\033[0m"
 msg -bar
-mine_port
 msg -bar
 
 monservi_fun () {
