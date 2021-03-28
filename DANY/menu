@@ -829,8 +829,9 @@ echo -e "\033[1;36mSISTEMA        MEMÓRIA RAM      PROCESSADOR "
 echo -e "\033[1;33mOS: \033[1;37m$system     \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
 echo -e "\033[1;33mHora: \033[1;37m$_hora \033[1;31mEm uso: \033[1;37m$_usor \033[1;31mEm uso: \033[1;37m$_usop\033[0m"
 msg -bar
+mine_port
+echo ""
 msg -bar
-
 monservi_fun () {
 clear
 clear
