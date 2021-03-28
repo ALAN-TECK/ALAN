@@ -278,13 +278,6 @@ clear
 clear
 msg -bar
 msg -tit
-echo -e "\033[1;93m      INFORMACION DEL SISTEMA Y PUERTOS ACTIVOS"
-msg -bar2
-echo -e "\033[1;31m PROCESADOR: \033[1;37mNUCLEOS: \033[1;32m$_core         \033[1;37mUSO DE CPU: \033[1;32m$_usop"
-echo -e "\033[1;31m LA MEMORIA RAM SE ENCUENTRA AL: \033[1;32m$_usor"
-echo -e "\033[1;31m DETALLE RAM: \033[1;37mTOTAL: \033[1;32m$ram1  \033[1;37mUSADO: \033[1;32m$ram3  \033[1;37mLIBRE: \033[1;32m$ram2"
-msg -ne " SO: " && echo -ne "\033[1;37m$(os_system)  "
-msg -ne " IP: " && echo -e "\033[1;37m$(meu_ip)"
 msg -bar2
 local portasVAR=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
 local NOREPEAT
@@ -343,6 +336,55 @@ openvpn)
 [[ -z $OVPN ]] && local OVPN="\033[0;36m OPENVPN-UDP: \033[1;32m"
 OVPN+="$Port ";;
 esac
+#SISTEMA DE PUERTAS
+mine_port () {
+unset portas
+portas_var=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
+i=0
+while read port; do
+var1=$(echo $port | awk '{print $1}') && var2=$(echo $port | awk '{print $9}' | awk -F ":" '{print $2}')
+[[ "$(echo -e ${portas[@]}|grep "$var1 $var2")" ]] || {
+    portas[$i]="$var1 $var2"
+    let i++
+    }
+done <<< "$portas_var"
+for((i=0; i<=${#portas[@]}; i++)); do
+servico="$(echo ${portas[$i]}|cut -d' ' -f1)"
+porta="$(echo ${portas[$i]}|cut -d' ' -f2)"
+[[ -z $servico ]] && break
+texto="\033[1;31m${servico}: \033[1;32m${porta}"
+     while [[ ${#texto} -lt 35 ]]; do
+        texto=$texto" "
+     done
+echo -ne "${texto}"
+let i++
+servico="$(echo ${portas[$i]}|cut -d' ' -f1)"
+porta="$(echo ${portas[$i]}|cut -d' ' -f2)"
+[[ -z $servico ]] && {
+   echo -e " "
+   break
+   }
+texto="\033[1;31m${servico}: \033[1;32m${porta}"
+     while [[ ${#texto} -lt 35 ]]; do
+        texto=$texto" "
+     done
+echo -ne "${texto}"
+let i++
+servico="$(echo ${portas[$i]}|cut -d' ' -f1)"
+porta="$(echo ${portas[$i]}|cut -d' ' -f2)"
+[[ -z $servico ]] && {
+   echo -e " "
+   break
+   }
+texto="\033[1;31m${servico}: \033[1;32m${porta}"
+     while [[ ${#texto} -lt 35 ]]; do
+        texto=$texto" "
+     done
+echo -e "${texto}"
+done
+}
+
+mine_port
 done <<< "${portasVAR}"
 [[ ! -z $SSH ]] && echo -e $SSH
 [[ ! -z $SSL ]] && echo -e $SSL
@@ -762,6 +804,26 @@ echo -e "     \033[1;37mIP: \033[1;93m$(meu_ip)     \033[1;37mS.O: \033[1;96m$(o
 
 
 # echo -e "\033[1;37m  % CPU: \033[1;32m$_usop   \033[1;37mS.O: \033[1;96m$(os_system) \033[1;37m  % RAM: \033[1;32m$_usor"
+#########VISUALIZACION DE MENU
+msg -bar
+_ram=$(printf ' %-9s' "$(free -h | grep -i mem | awk {'print $2'})")
+_usor=$(printf '%-8s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
+_usop=$(printf '%-1s' "$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')")
+_core=$(printf '%-1s' "$(grep -c cpu[0-9] /proc/stat)")
+_system=$(printf '%-10s' "$system")
+
+system=$(cut -d' ' -f1 /etc/issue.net)
+system+=$(cut -d' ' -f1 /etc/issue.net)
+system=$(cut -d' ' -f1 /etc/issue.net)
+_hora=$(printf '%(%H:%M:%S)T')
+
+echo -e "\033[1;36mSISTEMA        MEMÓRIA RAM      PROCESSADOR "
+echo -e "\033[1;33mOS: \033[1;37m$system     \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
+echo -e "\033[1;33mHora: \033[1;37m$_hora \033[1;31mEm uso: \033[1;37m$_usor \033[1;31mEm uso: \033[1;37m$_usop\033[0m"
+msg -bar
+mine_port
+echo ""
+msg -bar
 
 monservi_fun () {
 clear
