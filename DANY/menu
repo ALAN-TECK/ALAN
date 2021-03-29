@@ -38,8 +38,8 @@ v11=$(cat /etc/versin_script_new)
 v22=$(cat /etc/versin_script)
 [[ $v11 = $v22 ]] && vesaoSCT="\033[1;37mVersion\033[1;32m $v22  \033[1;31m]" || vesaoSCT="\033[1;31m($v22)\033[1;97m→\033[1;32m($v11)\033[1;31m  ]" 
 aviso_bock () {
-echo 'echo -e "\033[1;91m➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖\n       ¡SCRIPT BLOQUEADO CONTACTE A @ALANTOTUS94! \n————————————————————————————————————————————————————"' > /usr/bin/vps-mx
-echo 'echo -e "\033[1;91m➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖\n       ¡SCRIPT BLOQUEADO CONTACTE A @ALANTOTUS94! \n————————————————————————————————————————————————————"' > /usr/bin/VPS-MX
+echo 'echo -e "\033[1;91m➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖\n       ¡SCRIPT BLOQUEADO CONTACTE A @ALANTOTUS94! \n➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖"' > /usr/bin/vps-mx
+echo 'echo -e "\033[1;91m➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖\n       ¡SCRIPT BLOQUEADO CONTACTE A @ALANTOTUS94! \n➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖"' > /usr/bin/VPS-MX
  rm -rf /etc/VPS-MX 
 }
 local colors="/etc/VPS-MX/colors"
