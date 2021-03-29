@@ -136,7 +136,7 @@ function_verify () {
   exit 1
   } || {
   ### INTALAR VERSION DE SCRIPT
-  v1=$(curl -sSL "https://raw.githubusercontent.com/VPS-MX/VPS-MX_Oficial/master/Version")
+  v1=$(curl -sSL "https://raw.githubusercontent.com/ALAN-TECK/ALAN/main/v/Version")
   echo "$v1" > /etc/versin_script
   }
 }
