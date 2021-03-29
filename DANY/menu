@@ -150,6 +150,12 @@ case $1 in
 "C-SSR.sh")ARQ="${SCPinst}/";; #Panel SSR
 "openssh.sh")ARQ="${SCPinst}/";; #OpenVPN
 "squid.sh")ARQ="${SCPinst}/";; #Squid
+"Proxy-Privado.sh")ARQ="${SCPinst}/";; #Instalacao
+"shadown.sh")ARQ="${SCPinst}/";; #Instalacao
+"Proxy-Publico.sh")ARQ="${SCPinst}/";; #Instalacao
+"shadowsock.sh")ARQ="${SCPinst}/";; #Instalacao
+"ssld.sh")ARQ="${SCPinst}/";; #Instalacao
+"ssrrmu.sh")ARQ="${SCPinst}/";; #Instalacao
 "dropbear.sh")ARQ="${SCPinst}/";; #Instalacao
 "openvpn.sh")ARQ="${SCPinst}/";; #Instalacao
 "ssl.sh")ARQ="${SCPinst}/";; #Instalacao
@@ -608,7 +614,12 @@ case $1 in
 "sockspy.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;33mSOCKS PYTHON  $(pid_inst python)";;
 "v2ray.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;37mV2RAY MANAGER $(pid_inst v2ray)";; 
 "budp.sh")echo -ne "$(msg -verd " [$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;34mJUEGOS Y VIDEO LLAMDAS $(pid_inst badvpn)";;
-
+"ssld.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 "➣") " && msg -ama "\033[1;37mSSL MANAGERS $(pid_inst stunnel4)";;
+"shadown.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 "➣") " && msg -bra "\033[1;37mSHADOWSOCKS Cloack $(pid_inst ck-server)";;
+"shadowsock.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 "➣") " && msg -bra "\033[1;32mSHADOWSOCKS-Libev $(pid_inst obfs-serv)";;
+"ssrrmu.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -bra "\033[1;33mSADOWSOKSR MANAGER $(pid_inst python)";;
+"Proxy-Privado.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;36m Proxy-Privado $(pid_inst python)";;
+"Proxy-Publico.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 "➣") " && msg -azu "\033[1;36mProxyPublico $(pid_inst python)";;
 "paysnd.sh")return 1;;
 "ultrahost")return 1;;
 "speed.sh")return 1;;
