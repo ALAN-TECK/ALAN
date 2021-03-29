@@ -327,6 +327,12 @@ case $1 in
 "openssh.sh")ARQ="${SCPinst}/";; #Instalacao
 "squid.sh")ARQ="${SCPinst}/";; #Instalacao
 "dropbear.sh")ARQ="${SCPinst}/";; #Instalacao
+Proxy-Privado.sh")ARQ="${SCPinst}/";; #Instalacao
+"shadown.sh")ARQ="${SCPinst}/";; #Instalacao
+"Proxy-Publico.sh")ARQ="${SCPinst}/";; #Instalacao
+"shadowsock.sh")ARQ="${SCPinst}/";; #Instalacao
+"ssld.sh")ARQ="${SCPinst}/";; #Instalacao
+"ssrrmu.sh")ARQ="${SCPinst}/";; #Instalaca
 "openvpn.sh")ARQ="${SCPinst}/";; #Instalacao
 "ssl.sh")ARQ="${SCPinst}/";; #Instalacao
 "shadowsocks.sh")ARQ="${SCPinst}/";; #Instalacao
